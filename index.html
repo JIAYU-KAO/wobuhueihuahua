@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Wobuhueihuahua's Dreamy World</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 Font Awesome 圖示庫 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* 載入具有手寫感的日系字體 */
+        @import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300;400;500&family=Noto+Sans+TC:wght@300;400&display=swap');
+        
+        :root {
+            --soft-pink: #fff0f5;
+            --lace-color: #fce4ec;
+            --text-color: #8b6e6e;
+            --accent-pink: #ffc0cb;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Kiwi Maru', 'Noto Sans TC', sans-serif;
+            background-color: var(--soft-pink);
+            background-image: radial-gradient(#ffffff 2px, transparent 2px);
+            background-size: 30px 30px;
+            color: var(--text-color);
+            display: flex;
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100dvh; 
+            margin: 0;
+            overflow-x: hidden;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        /* 背景裝飾通用樣式 */
+        .bg-deco {
+            position: fixed;
+            pointer-events: none;
+            stroke-width: 2;
+            z-index: 0; 
+            animation: floating-deco 8s ease-in-out infinite;
+        }
+
+        @keyframes floating-deco {
+            0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+            50% { transform: translateY(-15px) rotate(8deg) scale(1.05); }
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .lace-container {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(8px);
+            padding: 40px 20px;
+            border-radius: 40px;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(255, 182, 193, 0.2);
+            max-width: 380px;
+            width: calc(100% - 40px);
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border: 6px double var(--lace-color);
+            animation: floating 5s ease-in-out infinite;
+            z-index: 10;
+        }
+
+        .lace-container::after {
+            content: "";
+            position: absolute;
+            top: -10px; left: -10px; right: -10px; bottom: -10px;
+            border: 2px dashed var(--accent-pink);
+            border-radius: 48px;
+            pointer-events: none;
+        }
+
+        .hand-drawn-border {
+            border: 2.5px solid var(--text-color);
+            border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+            padding: 8px 20px;
+            display: inline-block;
+            margin-bottom: 20px;
+            font-size: clamp(1.4rem, 5vw, 1.6rem);
+            font-weight: bold;
+            color: #d88a8a;
+            background: rgba(255, 255, 255, 0.95);
+            max-width: 100%;
+        }
+
+        .intro-text h2 {
+            font-size: 1.2rem;
+            margin-bottom: 6px;
+            letter-spacing: 1px;
+        }
+
+        .intro-text p {
+            font-size: 0.95rem;
+            opacity: 0.8;
+            margin-bottom: 35px;
+        }
+
+        .links-wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .links-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            gap: 18px;
+            width: 100%;
+        }
+
+        .link-item {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: all 0.3s;
+            font-size: 1.15rem;
+            width: fit-content;
+            min-width: 160px;
+            justify-content: flex-start;
+        }
+
+        .link-item:hover {
+            transform: scale(1.05) rotate(-1deg);
+            color: #ff8fa3;
+        }
+
+        .icon-circle {
+            width: 42px;
+            height: 42px;
+            border: 1.5px solid var(--text-color);
+            border-radius: 50% 45% 52% 48% / 48% 52% 45% 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+            background: #ffffff;
+            transition: all 0.3s;
+            flex-shrink: 0;
+        }
+
+        .icon-circle i {
+            font-size: 1.1rem;
+            color: var(--text-color);
+        }
+
+        .footer-deco {
+            margin-top: 40px;
+            font-size: 0.8rem;
+            opacity: 0.6;
+            width: 100%;
+        }
+
+        .heart {
+            color: #ffb6c1;
+            display: inline-block;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 背景裝飾圖案：填補上下空白處 -->
+    
+    <!-- 頂部空白處裝飾 -->
+    <svg class="bg-deco" style="top: 3%; left: 15%; width: 40px; stroke: white;" viewBox="0 0 100 100">
+        <path d="M50 20 L58 38 L78 38 L62 50 L68 70 L50 58 L32 70 L38 50 L22 38 L42 38 Z" fill="none" />
+    </svg>
+    <svg class="bg-deco" style="top: 8%; right: 20%; width: 30px; stroke: white; animation-delay: -2s;" viewBox="0 0 100 100">
+        <path d="M50 30 L55 45 L70 45 L58 53 L63 68 L50 60 L37 68 L42 53 L30 45 L45 45 Z" fill="white" fill-opacity="0.3" />
+    </svg>
+    <svg class="bg-deco" style="top: 5%; left: 45%; width: 25px; stroke: white; animation-delay: -4s;" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="20" fill="none" stroke-dasharray="5,3" />
+    </svg>
+
+    <!-- 側邊與方框周圍空白 -->
+    <svg class="bg-deco" style="top: 30%; left: 5%; width: 35px; stroke: rgba(255,255,255,0.8);" viewBox="0 0 100 100">
+        <path d="M50 80 C20 60 10 40 25 25 C35 15 45 20 50 30 C55 20 65 15 75 25 C90 40 80 60 50 80 Z" fill="none" />
+    </svg>
+    <svg class="bg-deco" style="top: 45%; right: 5%; width: 20px; stroke: white; animation-delay: -1s;" viewBox="0 0 100 100">
+        <path d="M50 20 L58 38 L78 38 L62 50 L68 70 L50 58 L32 70 L38 50 L22 38 L42 38 Z" fill="none" />
+    </svg>
+    <svg class="bg-deco" style="bottom: 40%; left: 3%; width: 25px; stroke: white; animation-delay: -3s;" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="15" fill="white" fill-opacity="0.2" />
+    </svg>
+
+    <!-- 底部空白處裝飾 -->
+    <svg class="bg-deco" style="bottom: 5%; left: 20%; width: 45px; stroke: white; animation-delay: -5s;" viewBox="0 0 100 100">
+        <path d="M50 80 C20 60 10 40 25 25 C35 15 45 20 50 30 C55 20 65 15 75 25 C90 40 80 60 50 80 Z" fill="white" fill-opacity="0.2" />
+    </svg>
+    <svg class="bg-deco" style="bottom: 8%; right: 15%; width: 50px; stroke: white; animation-delay: -1.5s;" viewBox="0 0 100 100">
+        <path d="M50 20 L58 38 L78 38 L62 50 L68 70 L50 58 L32 70 L38 50 L22 38 L42 38 Z" fill="none" />
+    </svg>
+    <svg class="bg-deco" style="bottom: 4%; left: 50%; width: 20px; stroke: white; animation-delay: -6s;" viewBox="0 0 100 100">
+        <path d="M50 30 L55 45 L70 45 L58 53 L63 68 L50 60 L37 68 L42 53 L30 45 L45 45 Z" fill="none" />
+    </svg>
+
+    <div class="lace-container">
+        <!-- 標題 -->
+        <div class="hand-drawn-border">Wobuhueihuahua</div>
+
+        <!-- 簡介 -->
+        <div class="intro-text">
+            <h2>來自台灣的專業亂畫家</h2>
+            <p>只是隨意記錄作品與生活 <span class="heart">♥</span></p>
+        </div>
+
+        <!-- 連結列表 -->
+        <div class="links-wrapper">
+            <div class="links-list">
+                <a href="https://www.instagram.com/wobuhueihuahua/" target="_blank" class="link-item">
+                    <div class="icon-circle"><i class="fab fa-instagram"></i></div>
+                    <span>Instagram</span>
+                </a>
+                <a href="https://www.youtube.com/@natalie0297" target="_blank" class="link-item">
+                    <div class="icon-circle"><i class="fab fa-youtube"></i></div>
+                    <span>Youtube</span>
+                </a>
+                <a href="https://store.line.me/stickershop/author/1213920/zh-Hant" target="_blank" class="link-item">
+                    <div class="icon-circle"><i class="fab fa-line"></i></div>
+                    <span>Line 貼圖</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- 頁尾 -->
+        <div class="footer-deco">
+            ✧･ﾟ: * ✧･ﾟ:* welcome to my world  *:･ﾟ✧ *:･ﾟ✧
+        </div>
+    </div>
+
+</body>
+</html>
